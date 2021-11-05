@@ -16,7 +16,18 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  Book.findById(req.params.id)
+  .then(book => {
+    res.render(`books/show`, {
+    title: `${book.title} Details`, 
+    book
+    })
+  })
+}
+
 export {
   newBook as new,
   create,
+  show,
 }
