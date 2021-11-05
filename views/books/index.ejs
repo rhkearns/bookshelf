@@ -21,7 +21,9 @@
           <td><%= book.genre %> </td>
           <td><a href="/books/<%= book._id %>">DETAILS</a></td>
           <td>
-            <!-- DELETE PLACEHOLDER -->
+            <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
+              <button type="Submit">Delete</button>
+            </form>
           </td>
         </tr>
       <% }) %> 

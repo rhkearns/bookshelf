@@ -25,7 +25,7 @@ function create(req, res) {
   })
   .catch(err => {
     console.log(err);
-    res.redirect('/books')
+    res.redirect('/books/index')
   })
 }
 
@@ -39,9 +39,21 @@ function show(req, res) {
   })
 }
 
+function deleteBook(req, res) {
+  Book.findByIdAndDelete(req.params.id)
+  .then(() =>{
+    res.redirect('/books/index')
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect('/books/index')
+  })
+}
+
 export {
   index,
   newBook as new,
   create,
   show,
+  deleteBook as delete,
 }
