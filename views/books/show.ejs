@@ -8,10 +8,18 @@
     <div><%= book.title %> </div>
     <div>Author: </div>
     <div><%= book.author %> </div>
-    <div>Release Year: </div>
-    <div><%= book.releaseYear %> </div>
-    <div>Series: </div>
-    <div><%= book.series %> </div>
+    <div>
+      <% if (book.releaseYear) {%> 
+        <div>Release Year: </div>
+        <div><%= book.releaseYear %> </div>
+      <% } %> 
+    </div>
+    <div>
+      <% if (book.releaseYear) {%> 
+        <div>Series: </div>
+        <div><%= book.series %> </div>
+      <% } %> 
+    </div>
     <div>Genre: </div>
     <div><%= book.genre %> </div>
     <div>Finished Reading: </div>
