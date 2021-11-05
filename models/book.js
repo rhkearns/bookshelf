@@ -7,9 +7,7 @@ const bookSchema = new Schema({
   author: String,
   releaseYear: {
     type: Number,
-    max: function() {
-      return new Date().getFullYear()
-    },
+    max: 2021,
   },
   genre: [String],
   notes: [String],
