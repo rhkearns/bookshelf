@@ -48,6 +48,19 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  console.log('update function');
+  req.body.finishedReading = !!req.body.finishedReading
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
+  Book.findByIdAndUpdate(req.params.id, req.body)
+  .then((book) => {
+    console.log('update done');
+    res.redirect(`/books/${book._id}`)
+  })
+}
+
 function deleteBook(req, res) {
   Book.findByIdAndDelete(req.params.id)
   .then(() => {
@@ -65,5 +78,6 @@ export {
   create,
   show,
   edit,
+  update,
   deleteBook as delete,
 }
