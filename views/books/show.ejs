@@ -1,0 +1,22 @@
+<%- include('../partials/html-head') %> 
+<%- include('../partials/nav') %> 
+
+<main>
+  <h1><%= book.title %> Details</h1>
+  <section>
+    <div>Title: </div>
+    <div><%= book.title %> </div>
+    <div>Author: </div>
+    <div><%= book.author %> </div>
+    <div>Release Year: </div>
+    <div><%= book.releaseYear %> </div>
+    <div>Series: </div>
+    <div><%= book.series %> </div>
+    <div>Genre: </div>
+    <div><%= book.genre %> </div>
+    <div>Finished Reading: </div>
+    <div><%= book.fihishedReading ? 'Finished' : 'Unfinished'%> </div>
+  </section>
+</main>
+
+<%- include('../partials/footer') %> 
