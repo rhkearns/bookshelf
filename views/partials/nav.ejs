@@ -6,11 +6,20 @@
   <nav>
       
     <% if (user) { %>
+      <a href="/">
+        <button type="submit">Home</button>
+      </a>
       <a href="/books/new">
         <button type="submit">Add a New Book</button>
       </a>
+      <a href="/books">
+        <button type="submit">See All Books</button>
+      </a>
       <a href="/shelves/new">
         <button type="submit">Add a New Shelf</button>
+      </a>
+      <a href="/shelves">
+        <button type="submit">See All Shelves</button>
       </a>
       <a href="/auth/logout">
         <button type="submit">Logout</button>
