@@ -12,7 +12,7 @@ const bookSchema = new Schema({
     },
   },
   genre: [String],
-  notes: String,
+  notes: [String],
   series: String,
   finishedReading: Boolean,
   owner: {type: Schema.Types.ObjectId, ref: 'Profile'}

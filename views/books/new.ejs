@@ -1,0 +1,65 @@
+<%- include('../partials/html-head') %> 
+<%- include('../partials/nav') %> 
+
+<main>
+  <h1><%= title %> </h1>
+  <form action="/books">
+    <label> Title: 
+      <input type="text" name="title" required>
+    </label><br>
+    <label> Author:
+      <input type="text" name="author" required>
+    </label><br>
+    <label> Release Year:
+      <input type="number" name="releaseYear" max="<% getCurrentYear() %>">
+    </label><br>
+    <label> Series:
+      <input type="text" name="series">
+    </label><br>
+    <label> Genre:
+      <select name="genre">
+        <option disabled selected>Choose One</option>
+        <option disabled>--Fiction--</option>
+        <option value="actionAdventure">Action/Adventure</option>
+        <option value="classics">Classic</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="graphicNovel">Graphic Novel</option>
+        <option value="historical">Historical Fiction</option>
+        <option value="horror">Horror</option>
+        <option value="litFiction">Literary Fiction</option>
+        <option value="mystery">Mystery</option>
+        <option value="romance">Romance</option>
+        <option value="sciFi">Sci-Fi</option>
+        <option value="shorts">Short Stories</option>
+        <option value="thriller">Thriller</option>
+        <option disabled>--Non-Fiction--</option>
+        <option value="arts">Arts</option>
+        <option value="business">Business</option>
+        <option value="biographies">Biographies & Memoirs</option>
+        <option value="cookbooks">Cookbooks</option>
+        <option value="politics">Current Affairs & Politics</option>
+        <option value="essays">Essays</option>
+        <option value="history">History</option>
+        <option value="hobbies">Hobbies</option>
+        <option value="poetry">Poetry</option>
+        <option value="religion">Religion</option>
+        <option value="selfHelp">Self-Help</option>
+        <option value="science">Science & Nature</option>
+        <option value="trueCrime">True Crime</option>
+      </select>
+    </label><br>
+    <label> Finished Reading:
+      <input type="checkbox">
+    </label><br>
+    <label> Notes:
+      <textarea name="notes"cols="30" rows="5"></textarea>
+    </label><br>
+    <button type="submit">Add Book</button>
+  </form>
+</main>
+
+<% function getCurrentYear() {%> 
+  <% return new Date().getFullYear() %> 
+  <% } %> 
+
+<%- include('../partials/footer') %> 
