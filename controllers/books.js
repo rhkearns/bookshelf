@@ -39,6 +39,15 @@ function show(req, res) {
   })
 }
 
+function edit(req, res) {
+  Book.findById(req.params.id)
+  .then((book) =>{
+    res.render(`books/edit`, {
+      title: "Edit Book Details", book,
+    })
+  })
+}
+
 function deleteBook(req, res) {
   Book.findByIdAndDelete(req.params.id)
   .then(() => {
@@ -55,5 +64,6 @@ export {
   newBook as new,
   create,
   show,
+  edit,
   deleteBook as delete,
 }

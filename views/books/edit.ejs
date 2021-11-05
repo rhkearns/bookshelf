@@ -3,22 +3,22 @@
 
 <main>
   <h1><%= title %> </h1>
-  <form action="/books" method="POST">
+  <form action="/books/<%= book._id %>?_method=PUT" method="POST">
     <label> Title: 
-      <input type="text" name="title" required>
+      <input type="text" name="title" value="<%= book.title %>" required>
     </label><br>
     <label> Author:
-      <input type="text" name="author" required>
+      <input type="text" name="author" value="<%= book.author %>" required>
     </label><br>
     <label> Release Year:
-      <input type="number" name="releaseYear" min="0" max="2021">
+      <input type="number" name="releaseYear" value="<%= book.releaseYear %>" min="0" max="2021">
     </label><br>
     <label> Series:
-      <input type="text" name="series">
+      <input type="text" name="series" value="<%= book.series %>">
     </label><br>
     <label> Genre:
       <select name="genre" required>
-        <option disabled selected>Choose One</option>
+        <option value="<%= book.genre %>"><%= book.genre %></option>
         <option disabled>--Fiction--</option>
         <option value="Action/Adventure">Action/Adventure</option>
         <option value="Classics">Classic</option>
@@ -49,14 +49,10 @@
       </select>
     </label><br>
     <label> Finished Reading:
-      <input type="checkbox" name="finishedReading">
+      <input type="checkbox" name="finishedReading" <%= book.finishedReading ? 'checked' : "" %> >
     </label><br>
-    <button type="submit">Add Book</button>
+    <button type="submit">Update Book</button>
   </form>
 </main>
-
-<% function getCurrentYear() {%> 
-  <% return new Date().getFullYear() %> 
-  <% } %> 
 
 <%- include('../partials/footer') %> 

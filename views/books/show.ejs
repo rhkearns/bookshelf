@@ -3,6 +3,9 @@
 
 <main>
   <h1><%= book.title %> Details</h1>
+  <a href="/books/<%= book._id %>/edit">
+    <button type="submit">Edit Book Details</button>
+  </a>
   <section>
     <div>Title: </div>
     <div><%= book.title %> </div>

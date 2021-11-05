@@ -3,32 +3,36 @@
 
 <main>
   <h1><%= title %> </h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Genre</th>
-        <th>Details</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% books.forEach(book => {%> 
-        <tr>
-          <td><%= book.title %> </td>
-          <td><%= book.author %> </td>
-          <td><%= book.genre %> </td>
-          <td><a href="/books/<%= book._id %>">DETAILS</a></td>
-          <td>
-            <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
-              <button type="Submit">Delete</button>
-            </form>
-          </td>
-        </tr>
-      <% }) %> 
-    </tbody>
-  </table>
+  <% if (!books.length) {%>
+    <h2>You have no books!</h2>
+    <% } else {%> 
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Details</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% books.forEach(book => {%> 
+            <tr>
+              <td><%= book.title %> </td>
+              <td><%= book.author %> </td>
+              <td><%= book.genre %> </td>
+              <td><a href="/books/<%= book._id %>">DETAILS</a></td>
+              <td>
+                <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
+                  <button type="Submit">Delete</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %> 
+        </tbody>
+      </table>
+    <% } %> 
 </main>
 
 
