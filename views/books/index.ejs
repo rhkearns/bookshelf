@@ -14,7 +14,17 @@
       </tr>
     </thead>
     <tbody>
-      <%  %> 
+      <% books.forEach(book => {%> 
+        <tr>
+          <td><%= book.title %> </td>
+          <td><%= book.author %> </td>
+          <td><%= book.genre %> </td>
+          <td><a href="/books/<%= book._id %>">DETAILS</a></td>
+          <td>
+            <!-- DELETE PLACEHOLDER -->
+          </td>
+        </tr>
+      <% }) %> 
     </tbody>
   </table>
 </main>

@@ -2,8 +2,8 @@ import { Book } from '../models/book.js'
 
 function index(req, res) {
   Book.find({})
-  .then(movies => {
-    res.render('/books', {
+  .then(books => {
+    res.render('books/index', {
       title: `${req.user.profile.name}'s Books`,
       books, 
     })
