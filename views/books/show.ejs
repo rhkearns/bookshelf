@@ -53,6 +53,7 @@
           <tr>
             <th>Review</th>
             <th>Rating</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -60,11 +61,20 @@
             <tr>
               <td><%= r.text %></td>
               <td><%= r.rating %></td>
+              <td>
+                <form id="delete-review-button" action="/books/<%= book._id %>/reviews/<%= r._id %>?_method=DELETE" 
+                method="POST"
+                >
+                  <button type="submit">X</button>
+                </form>
+              </td>
             </tr>
           <% }) %> 
         </tbody>
       </table>
-    <% } %> 
+    <% } else {%>
+      <h3>No Reviews</h3>
+    <% } %>  
   </section>
 </main>
 

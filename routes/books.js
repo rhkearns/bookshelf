@@ -12,6 +12,7 @@ router.post('/', isLoggedIn, booksCtrl.create)
 router.post('/:id/reviews', isLoggedIn, booksCtrl.addReview)
 router.put('/:id', isLoggedIn, booksCtrl.update)
 router.delete('/:id', isLoggedIn, booksCtrl.delete)
+router.delete('/:id/reviews/:reviewId', isLoggedIn, booksCtrl.deleteReview)
 
 export {
   router
