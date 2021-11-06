@@ -61,6 +61,19 @@ function update(req, res) {
   })
 }
 
+function addReview(req, res) {
+  Book.findById(req.params.id)
+  .then((book) => {
+    book.reviews.push(req.body)
+    book.save()
+    res.redirect(`/books/${book._id}`)
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect(`/books/${book._id}`)
+  })
+}
+
 function deleteBook(req, res) {
   Book.findByIdAndDelete(req.params.id)
   .then(() => {
@@ -79,5 +92,6 @@ export {
   show,
   edit,
   update,
+  addReview,
   deleteBook as delete,
 }
