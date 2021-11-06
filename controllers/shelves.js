@@ -10,6 +10,11 @@ function index(req, res) {
   })
 }
 
+function newShelf(req, res) {
+  res.render('shelves/new', {title: 'New Shelf'})
+}
+
 export {
   index,
+  newShelf as new,
 }
