@@ -14,6 +14,12 @@ const reviewSchema = new Schema({
   timestamps: true,
 })
 
+const noteSchema = new Schema({
+  noteText: String,
+}, {
+  timestamps: true,
+})
+
 const bookSchema = new Schema({
   title: String,
   author: String,
@@ -26,6 +32,7 @@ const bookSchema = new Schema({
   series: String,
   finishedReading: Boolean,
   owner: {type: Schema.Types.ObjectId, ref: 'Profile'},
+  notes: [noteSchema],
   reviews: [reviewSchema],
 })
 
