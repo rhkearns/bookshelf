@@ -1,7 +1,7 @@
 import { Book } from '../models/book.js'
 
 function index(req, res) {
-  Book.find({})
+  Book.find({owner: req.user.profile._id})
   .then(books => {
     res.render('books/index', {
       title: `${req.user.profile.name}'s Books`,
@@ -15,6 +15,7 @@ function newBook(req, res) {
 }
 
 function create(req, res) {
+  req.body.owner = req.user.profile
   req.body.finishedReading = !!req.body.finishedReading
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key]

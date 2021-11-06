@@ -1,7 +1,7 @@
 import { Shelf } from '../models/shelf.js'
 
 function index(req, res) {
-  Shelf.find({})
+  Shelf.find({owner: req.user.profile._id})
   .then(shelves => {
     res.render('shelves/index', {
       title: `${req.user.profile.name}'s Shelves`,
@@ -15,6 +15,7 @@ function newShelf(req, res) {
 }
 
 function create(req, res) {
+  req.body.owner = req.user.profile
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key]
   }
