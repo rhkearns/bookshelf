@@ -115,6 +115,25 @@ function deleteReview(req, res) {
   })
 }
 
+function deleteNote(req, res) {
+  Book.findById(req.params.id)
+  .then(book => {
+    book.notes.forEach(r => {
+      if (r._id == req.params.noteId) {
+        r.remove()
+        book.save()
+        res.redirect(`/books/${book._id}`)
+      }
+    })
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect(`/books/${book._id}`)
+  })
+}
+
+
+
 export {
   index,
   newBook as new,
@@ -126,4 +145,5 @@ export {
   addNote,
   deleteBook as delete,
   deleteReview,
+  deleteNote,
 }

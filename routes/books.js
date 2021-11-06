@@ -14,6 +14,7 @@ router.post('/:id/notes', isLoggedIn, booksCtrl.addNote)
 router.put('/:id', isLoggedIn, booksCtrl.update)
 router.delete('/:id', isLoggedIn, booksCtrl.delete)
 router.delete('/:id/reviews/:reviewId', isLoggedIn, booksCtrl.deleteReview)
+router.delete('/:id/notes/:noteId', isLoggedIn, booksCtrl.deleteNote)
 
 export {
   router
