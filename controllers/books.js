@@ -15,7 +15,7 @@ function newBook(req, res) {
 }
 
 function create(req, res) {
-  req.body.owner = req.user.profile
+  req.body.owner = req.user.profile._id
   req.body.finishedReading = !!req.body.finishedReading
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key]

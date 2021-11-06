@@ -15,17 +15,17 @@ function newShelf(req, res) {
 }
 
 function create(req, res) {
-  req.body.owner = req.user.profile
+  req.body.owner = req.user.profile._id
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key]
   }
   Shelf.create(req.body)
   .then(shelf => {
-    req.redirect('/shelves')
+    res.redirect('/shelves')
   })
   .catch(err => {
     console.log(err);
-    req.redirect('/shelves')
+    res.redirect('/shelves')
   })
 }
 
