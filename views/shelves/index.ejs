@@ -1,4 +1,20 @@
 <%- include('../partials/html-head') %> 
 <%- include('../partials/nav') %> 
 
+<main>
+  <h1><% title %> </h1>
+  <% if (!shelves.length) {%>
+    <h2>You don't have any shelves! </h2>
+    <h3>Why not make one?</h3>
+    <form action="/shelves/new">
+      <button type="submit">Add a New Shelf</button>
+    </form>
+  <% } else {%>
+    <% shelves.forEach(shelf => {%> 
+      <a href="/shelves/<%= shelf._id %>"><%= shelf.shelfName %></a>
+    <% }) %> 
+  <% } %> 
+</main>
+
+
 <%- include('../partials/footer') %> 
