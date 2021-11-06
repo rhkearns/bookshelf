@@ -29,6 +29,22 @@
     <div><%= book.fihishedReading ? 'Finished' : 'Unfinished'%> </div>
   </section>
   <section>
+    <h2>Notes</h2>
+    <form action="/books/<%= book._id %>/notes"
+      method="POST">
+      <textarea name="noteText" id="note-text" placeholder="Add Note Here"></textarea><br>
+      <button type="submit">Add Note</button>
+    </form>
+    <% if (book.notes.length) {%> 
+      <% book.notes.forEach(n => {%>
+        <p><%= n.createdAt.toLocalDateString() %></p>
+        <p><%= n.noteText %> </p>
+      <% }) %> 
+    <% } else {%>
+      <h3>No Notes</h3>
+    <% } %> 
+  </section>
+  <section>
     <h2>Reviews</h2>
     <form 
       id="add-review-form"
