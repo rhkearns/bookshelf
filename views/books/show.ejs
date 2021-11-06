@@ -32,13 +32,12 @@
     <h2>Notes</h2>
     <form action="/books/<%= book._id %>/notes"
       method="POST">
-      <textarea name="noteText" id="note-text" placeholder="Add Note Here"></textarea><br>
+      <textarea name="noteText" id="note-text" placeholder="Add Note Here"></textarea>
       <button type="submit">Add Note</button>
     </form>
     <% if (book.notes.length) {%> 
       <% book.notes.forEach(n => {%>
-        <p><%= n.createdAt.toLocalDateString() %></p>
-        <p><%= n.noteText %> </p>
+        <p><%= n.createdAt %> - <%= n.noteText %></p>
       <% }) %> 
     <% } else {%>
       <h3>No Notes</h3>
