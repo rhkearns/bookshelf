@@ -1,4 +1,15 @@
 <%- include('../partials/html-head') %> 
 <%- include('../partials/nav') %> 
 
+<main>
+  <h1><%= title %></h1>
+  <form action="/shelves" method="POST">
+    <label for="shelf-name">Shelf Name</label><br>
+    <input type="text" name="shelfName" required><br>
+    <label for="shelf-description">Shelf Description (optional)</label><br>
+    <textarea name="description" id="shelf-description" cols="15" rows="3"></textarea><br>
+    <button type="submit">Create Shelf</button>
+  </form>
+</main>
+
 <%- include('../partials/footer') %> 
