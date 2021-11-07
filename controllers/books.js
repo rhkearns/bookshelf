@@ -68,14 +68,18 @@ function update(req, res) {
 }
 
 function addToShelf(req, res) {
-  console.log('body', req.body);
-  console.log('id', req.body.id);
   Book.findById(req.params.id)
   .then(book => {
     book.shelves.push(req.body.shelfId)
     book.save()
-    console.log("book", book);
-    res.redirect(`/books/${book._id}`)
+    .then(book => {
+      Shelf.findById(req.body.shelfId)
+      .then(shelf => {
+        shelf.books.push(book)
+        shelf.save()
+        res.redirect(`/books/${book._id}`)
+      })
+    })
   })
 }
 
