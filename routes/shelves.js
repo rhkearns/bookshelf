@@ -8,6 +8,7 @@ router.get('/', isLoggedIn, shelvesCtrl.index)
 router.get('/new', isLoggedIn, shelvesCtrl.new)
 router.get('/:id', isLoggedIn, shelvesCtrl.show)
 router.post('/', isLoggedIn, shelvesCtrl.create)
+router.delete('/:id/books/:bookId', isLoggedIn, shelvesCtrl.removeBook)
 
 export {
   router
