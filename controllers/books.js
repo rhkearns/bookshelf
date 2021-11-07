@@ -1,6 +1,5 @@
 import { Book } from '../models/book.js'
 import { Shelf } from '../models/shelf.js'
-import { Profile } from '../models/profile.js'
 
 function index(req, res) {
   Book.find({owner: req.user.profile._id})
@@ -38,7 +37,6 @@ function show(req, res) {
   .then(book => {
     Shelf.find({$and: [{_id: {$nin: book.shelves}}, {owner: req.user.profile._id}]})
       .then(shelves => {
-        console.log(shelves);
         res.render(`books/show`, {
         title: `${book.title} Details`, 
         book, shelves,
@@ -65,6 +63,18 @@ function update(req, res) {
   Book.findByIdAndUpdate(req.params.id, req.body)
   .then((book) => {
     console.log('update done');
+    res.redirect(`/books/${book._id}`)
+  })
+}
+
+function addToShelf(req, res) {
+  console.log('body', req.body);
+  console.log('id', req.body.id);
+  Book.findById(req.params.id)
+  .then(book => {
+    book.shelves.push(req.body.shelfId)
+    book.save()
+    console.log("book", book);
     res.redirect(`/books/${book._id}`)
   })
 }
@@ -149,6 +159,7 @@ export {
   show,
   edit,
   update,
+  addToShelf,
   addReview,
   addNote,
   deleteBook as delete,

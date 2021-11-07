@@ -32,7 +32,7 @@ const bookSchema = new Schema({
   series: String,
   status: String,
   owner: {type: Schema.Types.ObjectId, ref: 'Profile'},
-  shelves: [String],
+  shelves: [{type: Schema.Types.ObjectId, ref: 'Shelf'}],
   notes: [noteSchema],
   reviews: [reviewSchema],
 })
