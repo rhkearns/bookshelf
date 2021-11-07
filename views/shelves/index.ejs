@@ -11,7 +11,8 @@
     </form>
   <% } else {%>
     <% shelves.forEach(shelf => {%> 
-      <a href="/shelves/<%= shelf._id %>"><%= shelf.shelfName %></a>
+      <a href="/shelves/<%= shelf._id %>"><%= shelf.shelfName %></a> - <%= shelf.books.length %>
+      
     <% }) %> 
   <% } %> 
 </main>
