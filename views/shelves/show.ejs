@@ -28,8 +28,8 @@
             <td><%= book.status%> </td>
             <td><a href="/books/<%= book._id %>">DETAILS</a></td>
             <td>
-              <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
-                <button type="Submit">Delete</button>
+              <form action="/shelves/<%= shelf._id %>/books?_method=DELETE" method="POST">
+                <button type="Submit">Remove from Shelf</button>
               </form>
             </td>
           </tr>
