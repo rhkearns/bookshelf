@@ -26,7 +26,18 @@
     <div>Genre: </div>
     <div><%= book.genre %> </div>
     <div>Finished Reading: </div>
-    <div><%= book.fihishedReading ? 'Finished' : 'Unfinished'%> </div>
+    <div><%= book.status %> </div>
+    <div>On Shelf: </div>
+    <ul><%- book.shelves.map(s => `<li>${shelf.shelfName}</li>`).join('') %></ul>
+  </section>
+  <section>
+    <div>Add to Shelf: </div>
+    <form action="/books/<%= book._id %>/shelves" method="POST">
+      <select name="shelves">
+        <%- shelves.map(s => `<option value ="${s._id}">${s.name}</option>`) %> 
+      </select>
+      <button type="submit">Add to Shelf</button>
+    </form>
   </section>
   <section>
     <h2>Notes</h2>

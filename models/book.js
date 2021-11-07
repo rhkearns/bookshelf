@@ -32,6 +32,7 @@ const bookSchema = new Schema({
   series: String,
   status: String,
   owner: {type: Schema.Types.ObjectId, ref: 'Profile'},
+  shelves: [String],
   notes: [noteSchema],
   reviews: [reviewSchema],
 })
