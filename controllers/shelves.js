@@ -1,4 +1,5 @@
 import { Shelf } from '../models/shelf.js'
+import { Book } from '../models/book.js'
 
 function index(req, res) {
   Shelf.find({owner: req.user.profile._id})
@@ -31,10 +32,14 @@ function create(req, res) {
 
 function show(req, res) {
   Shelf.findById(req.params.id)
+  .populate('books').exec()
   .then(shelf => {
+    Book.find({$and: [{_id: {$in: shelf.books}}, {owner: req.user.profile._id}]})
+    .then(books => {
     res.render(`shelves/show`, {
       title: `${shelf.shelfName} Details`,
-      shelf,
+      shelf, books
+      })
     })
   })
 }
