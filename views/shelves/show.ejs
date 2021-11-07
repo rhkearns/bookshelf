@@ -1,4 +1,29 @@
 <%- include('../partials/html-head') %> 
 <%- include('../partials/nav') %> 
 
+<main>
+  <h1><%= title %> </h1>
+  <%= shelf.description %> 
+
+  <% if (!shelf.books.length) {%> 
+    <h2>This shelf is empty!</h2>
+  <% } else {%>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Genre</th>
+          <th>Read?</th>
+          <th>Details</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+    </table>
+    <% shelf.books.forEach(book => { %> 
+      
+    <% }) %> 
+  <% } %> 
+</main>
+
 <%- include('../partials/footer') %> 

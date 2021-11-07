@@ -29,10 +29,23 @@ function create(req, res) {
   })
 }
 
-
+function show(req, res) {
+  Shelf.findById(req.params.id)
+  .then((shelf) => {
+    res.render(`shelves/${shelf._id}`, {
+      title: `${shelf.shelfName} Details`,
+      shelf,
+    })
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect('/shelves')
+  })
+}
 
 export {
   index,
   newShelf as new,
   create,
+  show,
 }
