@@ -11,7 +11,7 @@ router.get('/:id/edit', isLoggedIn, booksCtrl.edit)
 router.post('/', isLoggedIn, booksCtrl.create)
 router.post('/:id/reviews', isLoggedIn, booksCtrl.addReview)
 router.post('/:id/notes', isLoggedIn, booksCtrl.addNote)
-
+router.post('/:id/shelves', isLoggedIn, booksCtrl.addToShelf)
 router.put('/:id', isLoggedIn, booksCtrl.update)
 router.delete('/:id', isLoggedIn, booksCtrl.delete)
 router.delete('/:id/reviews/:reviewId', isLoggedIn, booksCtrl.deleteReview)
