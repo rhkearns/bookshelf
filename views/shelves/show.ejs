@@ -19,10 +19,23 @@
           <th>Remove</th>
         </tr>
       </thead>
+      <tbody>
+        <% shelf.books.forEach(book => { %> 
+          <tr>
+            <td><%= book.title %> </td>
+            <td><%= book.author %> </td>
+            <td><%= book.genre %> </td>
+            <td><%= book.status%> </td>
+            <td><a href="/books/<%= book._id %>">DETAILS</a></td>
+            <td>
+              <form action="/books/<%= book._id %>?_method=DELETE" method="POST">
+                <button type="Submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %> 
+      </tbody>
     </table>
-    <% shelf.books.forEach(book => { %> 
-      
-    <% }) %> 
   <% } %> 
 </main>
 

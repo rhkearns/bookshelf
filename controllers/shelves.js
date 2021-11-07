@@ -31,15 +31,11 @@ function create(req, res) {
 
 function show(req, res) {
   Shelf.findById(req.params.id)
-  .then((shelf) => {
-    res.render(`shelves/${shelf._id}`, {
+  .then(shelf => {
+    res.render(`shelves/show`, {
       title: `${shelf.shelfName} Details`,
       shelf,
     })
-  })
-  .catch(err => {
-    console.log(err);
-    res.redirect('/shelves')
   })
 }
 
