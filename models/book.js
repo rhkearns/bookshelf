@@ -30,7 +30,7 @@ const bookSchema = new Schema({
   genre: [String],
   notes: [String],
   series: String,
-  finishedReading: Boolean,
+  status: String,
   owner: {type: Schema.Types.ObjectId, ref: 'Profile'},
   notes: [noteSchema],
   reviews: [reviewSchema],
