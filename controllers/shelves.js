@@ -46,14 +46,24 @@ function show(req, res) {
 
 function removeBook(req, res) {
   console.log(req.params.bookId);
-  Shelf.findById(req.params.id)
-  .then(shelf => {
-    shelf.books.remove({_id: req.params.bookId})
-    shelf.save()
-    console.log(shelf);
-    res.redirect(`/shelves/${shelf._id}`)
-  })
+  Book.findById(req.params.bookId)
+    .then(book => {
+      book.shelves.remove({_id: req.params.id})
+      book.save()
+      .then(book => {
+        Shelf.findById(req.params.id)
+        .then(shelf => {
+          shelf.books.remove({_id: req.params.bookId})
+          shelf.save()
+          res.redirect(`/shelves/${shelf._id}`)
+        })
+      })
+    })
 }
+
+
+  
+
 
 
 export {

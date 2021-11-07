@@ -110,13 +110,25 @@ function addNote(req, res) {
 }
 
 function deleteBook(req, res) {
-  Book.findByIdAndDelete(req.params.id)
-  .then(() => {
-    res.redirect('/books')
-  })
-  .catch(err => {
-    console.log(err);
-    res.redirect('/books')
+  Book.findById(req.params.id)
+  .then(book => {
+    book.shelves.forEach(shelf => {
+      Shelf.findById(shelf)
+      .then(shelf => {
+        shelf.books.remove(req.params.id)
+        shelf.save()
+        .then(() => {
+          Book.findByIdAndDelete(req.params.id)
+          .then(() => {
+            res.redirect('/books')
+          })
+          .catch(err => {
+            console.log(err);
+            res.redirect('/books')
+          })
+        })
+      })
+    })
   })
 }
 
