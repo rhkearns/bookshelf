@@ -1,4 +1,6 @@
 import { Book } from '../models/book.js'
+import { Shelf } from '../models/shelf.js'
+import { Profile } from '../models/profile.js'
 
 function index(req, res) {
   Book.find({owner: req.user.profile._id})
@@ -32,13 +34,18 @@ function create(req, res) {
 
 function show(req, res) {
   Book.findById(req.params.id)
+  .populate('shelves').exec()
   .then(book => {
-    res.render(`books/show`, {
-    title: `${book.title} Details`, 
-    book
+    Shelf.find({$and: [{_id: {$nin: book.shelves}}, {owner: req.user.profile._id}]})
+      .then(shelves => {
+        console.log(shelves);
+        res.render(`books/show`, {
+        title: `${book.title} Details`, 
+        book, shelves,
+        })
+      })
     })
-  })
-}
+  }
 
 function edit(req, res) {
   Book.findById(req.params.id)
