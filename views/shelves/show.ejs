@@ -2,7 +2,10 @@
 <%- include('../partials/nav') %> 
 
 <main>
-  <h1><%= title %> </h1>
+  <h1><%= title %> </h1> 
+  <form action="/shelves/<%= shelf._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete Shelf</button>
+  </form>
   <%= shelf.description %> 
 
   <% if (!shelf.books.length) {%> 
