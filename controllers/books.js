@@ -114,11 +114,11 @@ Book.findByIdAndDelete(req.params.id)
   .then(book => {
     deleteHelper(book)
     res.redirect('/books')
-    })
-    .catch(err => {
-      console.log(err);
-      res.redirect('/books')
-    })
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect('/books')
+  })
 }
 
 function deleteHelper(book) {
@@ -127,9 +127,9 @@ function deleteHelper(book) {
       .then(shelf => {
         shelf.books.remove(book.id)
         shelf.save()
-        })
       })
-    }
+  })
+}
 
 
 function deleteReview(req, res) {
