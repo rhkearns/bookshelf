@@ -61,8 +61,27 @@ function removeBook(req, res) {
     })
 }
 
+function deleteShelf(req, res) {
+  Shelf.findByIdAndDelete(req.params.id)
+  .then(shelf => {
+    deleteHelper(shelf)
+    res.redirect('/shelves')
+  })
+  .catch(err => {
+    console.log(err);
+    res.redirect('/shelves')
+  })
+}
 
-  
+function deleteHelper(shelf) {
+  shelf.books.forEach(book => {
+    Book.findById(book)
+    .then(book => {
+      book.shelves.remove(shelf.id)
+      book.save()
+    })
+  })
+}
 
 
 
@@ -72,4 +91,5 @@ export {
   create,
   show,
   removeBook,
+  deleteShelf as delete,
 }
