@@ -1,26 +1,28 @@
 <%- include('../partials/html-head') %> 
+<link rel="stylesheet" href="../stylesheets/shelves/index.css">
 <%- include('../partials/nav') %> 
 
 <main>
   <h1><%= title %> </h1>
-  <% if (!shelves.length) {%>
-    <h2>You don't have any shelves! </h2>
-    <h3>Why not make one?</h3>
-    <form action="/shelves/new">
-      <button type="submit">Add a New Shelf</button>
-    </form>
-  <% } else {%>
-    <% shelves.forEach(shelf => {%> 
-      <div class="card" style="width: 15rem;">
-        <img src="../images/customs/Books.png" class="card-img-top" alt="bookshelf-icon">
-        <div class="card-body">
-          <p class="card-text"><%= shelf.books.length %></p>
-          <p class="card-text"><a href="/shelves/<%= shelf._id %>"><%= shelf.shelfName %></a></p>
+    <% if (!shelves.length) {%>
+      <h2>You don't have any shelves! </h2>
+      <h3>Why not make one?</h3>
+      <form action="/shelves/new">
+        <button type="submit">Add a New Shelf</button>
+      </form>
+    <% } else {%>
+      <section class="shelves">  
+      <% shelves.forEach(shelf => {%> 
+        <div class="card" style="width: 15rem;">
+          <img src="../images/customs/Books.png" class="card-img-top" alt="bookshelf-icon">
+          <div class="card-body">
+            <p class="card-text"><%= shelf.books.length %></p>
+            <p class="card-text"><a href="/shelves/<%= shelf._id %>"><%= shelf.shelfName %></a></p>
+          </div>
         </div>
-      </div>
-      
-    <% }) %> 
-  <% } %> 
+      <% }) %> 
+      <% } %>
+    </section> 
 </main>
 
 

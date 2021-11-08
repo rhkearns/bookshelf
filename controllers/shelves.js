@@ -64,7 +64,9 @@ function removeBook(req, res) {
 function deleteShelf(req, res) {
   Shelf.findByIdAndDelete(req.params.id)
   .then(shelf => {
-    deleteHelper(shelf)
+    if (shelf.books.length) {
+      deleteHelper(shelf)
+    }
     res.redirect('/shelves')
   })
   .catch(err => {

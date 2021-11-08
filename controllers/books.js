@@ -112,7 +112,9 @@ function addNote(req, res) {
 function deleteBook(req, res) {
 Book.findByIdAndDelete(req.params.id)
   .then(book => {
-    deleteHelper(book)
+    if (book.shelf.length) {
+      deleteHelper(book)
+    }
     res.redirect('/books')
   })
   .catch(err => {
