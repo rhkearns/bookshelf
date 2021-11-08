@@ -5,7 +5,7 @@ function index(req, res) {
   Book.find({owner: req.user.profile._id})
   .then(books => {
     res.render('books/index', {
-      title: `${req.user.profile.name}'s Books`,
+      title: `My Books`,
       books, 
     })
   })

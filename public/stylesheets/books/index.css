@@ -1,0 +1,50 @@
+body {
+  --lav: #DCCDE8;
+  --verm: #D33F49;
+  --charGreen: #293132;
+  --seaGreen: #00A9A5;
+  --greYell: #A8C256;
+}
+
+table {
+  font-size: 2rem;
+}
+
+table thead th {
+  padding: 5px;
+  border-bottom: 2px solid var(--charGreen);
+  text-align: center;
+  font-weight: bolder;
+}
+
+table td {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid var(--charGreen);
+  
+}
+
+#delete-book-button {
+  font-size: 2rem;
+  color: var(--charGreen);
+  background-color: #d33f4980;
+}
+
+#delete-book-button:hover {
+  background-color: #d33f49;
+}
+
+tr:hover {
+  background-color: rgb(212, 186, 233)
+}
+
+a {
+  color: var(--verm)
+}
+
+a:hover {
+  color: #7a252b;
+}
+
+

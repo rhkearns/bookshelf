@@ -13,6 +13,11 @@ Screenshots:
 
 
 Technologies Used:
+HTML, CSS, JavaScript, Node.js, Express, MongoDB, Mongoose, Passport, 
+
+Citations: 
+Trash icon from fontawesome.com
+Font: "Cinzel" from Google Fonts
 
 
 Next Steps (icebox items):

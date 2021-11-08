@@ -5,7 +5,7 @@ function index(req, res) {
   Shelf.find({owner: req.user.profile._id})
   .then(shelves => {
     res.render('shelves/index', {
-      title: `${req.user.profile.name}'s Shelves`,
+      title: `My Shelves`,
       shelves, 
     })
   })

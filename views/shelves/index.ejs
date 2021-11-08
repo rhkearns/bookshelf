@@ -11,7 +11,13 @@
     </form>
   <% } else {%>
     <% shelves.forEach(shelf => {%> 
-      <a href="/shelves/<%= shelf._id %>"><%= shelf.shelfName %></a> - <%= shelf.books.length %>
+      <div class="card" style="width: 15rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text"><%= shelf.books.length %></p>
+          <p class="card-text"><a href="/shelves/<%= shelf._id %>"><%= shelf.shelfName %></a></p>
+        </div>
+      </div>
       
     <% }) %> 
   <% } %> 
