@@ -25,7 +25,7 @@ const bookSchema = new Schema({
   author: String,
   releaseYear: {
     type: Number,
-    max: 2021
+    max: new Date().getFullYear()
   },
   genre: [String],
   notes: [String],
