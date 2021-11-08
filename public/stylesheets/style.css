@@ -43,3 +43,11 @@ main {
 h1 {
   font-size: 3.6rem;
 }
+
+.note {
+  display: inline-block;
+}
+
+#delete-note-form {
+  display: inline-block;
+}

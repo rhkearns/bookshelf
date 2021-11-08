@@ -48,12 +48,13 @@
     </form>
     <% if (book.notes.length) {%> 
       <% book.notes.forEach(n => {%>
-        <p><%= n.createdAt %> - <%= n.noteText %></p>
-        <form id="delete-note-button" action="/books/<%= book._id %>/notes/<%= n._id %>?_method=DELETE" 
+        <p class="note"><%= n.createdAt.toLocaleDateString() %> - <%= n.noteText %></p>
+        <form id="delete-note-form" action="/books/<%= book._id %>/notes/<%= n._id %>?_method=DELETE" 
           method="POST"
           >
-          <button type="submit">X</button>
+          <button id="delete-note-button" type="submit">X</button>
         </form>
+        <br>
       <% }) %> 
     <% } else {%>
       <h3>No Notes</h3>
