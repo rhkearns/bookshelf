@@ -1,6 +1,6 @@
 body {
-  --lav: #DCCDE8;
-  --verm: #D33F49;
+  --lav: #e9c583;
+  --verm: #83272d;
   --charGreen: #293132;
   --seaGreen: #00A9A5;
   --greYell: #A8C256;
@@ -19,14 +19,21 @@ section {
 
 .card {
   margin: 50px;
+  background: transparent;
+  border-radius: 10px;
+  border: 3px solid var(--charGreen)
+}
+
+.card-img-top {
+  border-bottom: 2px dashed var(--charGreen)
 }
 
 .card-text {
   text-align: center;
+  background: none;
 }
 
 .card-text > a {
-  
   color: var(--verm)
 }
 
