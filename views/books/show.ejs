@@ -1,4 +1,5 @@
 <%- include('../partials/html-head') %> 
+<link rel="stylesheet" href="../stylesheets/books/show.css">
 <%- include('../partials/nav') %> 
 
 <main>
@@ -6,23 +7,19 @@
   <a href="/books/<%= book._id %>/edit">
     <button type="submit">Edit Book Details</button>
   </a>
-  <section>
+  <section id="content">
     <div>Title: </div>
     <div><%= book.title %> </div>
     <div>Author: </div>
     <div><%= book.author %> </div>
-    <div>
       <% if (book.releaseYear) {%> 
         <div>Release Year: </div>
         <div><%= book.releaseYear %> </div>
       <% } %> 
-    </div>
-    <div>
-      <% if (book.releaseYear) {%> 
+      <% if (book.series) {%> 
         <div>Series: </div>
         <div><%= book.series %> </div>
       <% } %> 
-    </div>
     <div>Genre: </div>
     <div><%= book.genre %> </div>
     <div>Finished Reading: </div>
@@ -30,7 +27,7 @@
     <div>On Shelf: </div>
     <ul><%- book.shelves.map(shelf => `<li>${shelf.shelfName}</li>`).join('') %></ul>
   </section>
-  <section>
+  <section id="add-to-shelf">
     <div>Add to Shelf: </div>
     <form action="/books/<%= book._id %>/shelves" method="POST">
       <select name="shelfId">
@@ -39,29 +36,29 @@
       <button type="submit">Add to Shelf</button>
     </form>
   </section>
-  <section>
-    <h2>Notes</h2>
-    <form action="/books/<%= book._id %>/notes"
+  <h2 class="section-header">Notes</h2>
+  <section id="notes">
+    <form id="add-note" action="/books/<%= book._id %>/notes"
       method="POST">
       <textarea name="noteText" id="note-text" placeholder="Add Note Here"></textarea>
       <button type="submit">Add Note</button>
     </form>
     <% if (book.notes.length) {%> 
       <% book.notes.forEach(n => {%>
-        <p class="note"><%= n.createdAt.toLocaleDateString() %> - <%= n.noteText %></p>
-        <form id="delete-note-form" action="/books/<%= book._id %>/notes/<%= n._id %>?_method=DELETE" 
-          method="POST"
-          >
-          <button id="delete-note-button" type="submit">X</button>
-        </form>
+        <div class="note">
+          <p ><%= n.createdAt.toLocaleDateString() %> - <%= n.noteText %></p>
+          <form id="delete-note-form" action="/books/<%= book._id %>/notes/<%= n._id %>?_method=DELETE" 
+            method="POST"
+            >
+            <button id="delete-note-button" type="submit">X</button>
+          </div>
+          </form>
         <br>
       <% }) %> 
-    <% } else {%>
-      <h3>No Notes</h3>
-    <% } %> 
+    <% }  %>
   </section>
-  <section>
-    <h2>Reviews</h2>
+  <h2 class="section-header">Reviews</h2>
+  <section id="reviews">
     <form 
       id="add-review-form"
       action="/books/<%= book._id %>/reviews"
@@ -69,7 +66,7 @@
     >
       <label for="review-textarea">Reveiw:</label>
       <textarea name="text" id="review-textarea"></textarea><br>
-      <label for="rating-select">Rating:</label>
+      <label id="rating-select" for="rating-select">Rating:</label>
       <select name="rating" id="rating-select">
         <option value="1">⭐</option>
         <option value="2">⭐⭐</option>
@@ -77,10 +74,11 @@
         <option value="4">⭐⭐⭐⭐</option>
         <option value="5" selected>⭐⭐⭐⭐⭐</option>
       </select>
-      <button type="submit">Add Review</button>
+      <button id="add-review-btn" type="submit">Add Review</button>
     </form>
+  </section>
     <% if (book.reviews.length) {%> 
-      <table>
+      <table id="reviews-table">
         <thead>
           <tr>
             <th>Review</th>
@@ -104,10 +102,7 @@
           <% }) %> 
         </tbody>
       </table>
-    <% } else {%>
-      <h3>No Reviews</h3>
     <% } %>  
-  </section>
 </main>
 
 <%- include('../partials/footer') %> 

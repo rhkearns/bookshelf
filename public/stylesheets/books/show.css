@@ -1,0 +1,110 @@
+body {
+  --lav: #DCCDE8;
+  --verm: #D33F49;
+  --charGreen: #293132;
+  --seaGreen: #00A9A5;
+  --greYell: #A8C256;
+}
+
+ul {
+  margin: 0 0 1.6rem;
+  padding: 0;
+  list-style: disc;
+}
+
+li {
+  font-weight: bold;
+}
+
+table {
+  font-size: 2rem;
+}
+
+table thead th {
+  padding: 5px;
+  border-bottom: 2px solid var(--charGreen);
+}
+
+table td {
+  padding: 10px;
+  text-align: center;
+}
+
+form * {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+section {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1.6rem;
+  margin: 15px auto;
+}
+
+section div:nth-child(even) {
+  font-weight: bold;
+}
+
+#add-note {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1.6rem;
+  margin-bottom: 2rem;
+  margin: 0 auto;
+}
+
+#add-note > textarea {
+  width: 25rem;
+} 
+
+#add-note > button {
+  grid-column: 2 / 3;
+  margin: 2.4rem 0;
+}
+
+.section-header {
+  font-size: 3.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.note {
+  grid-column: span 2;
+  display: inline-flex;
+  justify-content: space-between;
+  inline-size: 500px;
+  word-wrap: normal;
+}
+
+#delete-note-button {
+  text-align: right;
+}
+
+#add-review-form {
+  display: flex;
+  flex-direction: column;
+  word-wrap: normal;
+  margin-bottom: 2rem;
+  margin: 0 auto;
+}
+
+#reviews-table {
+  inline-size: 500px;
+}
+
+#content,
+#notes,
+#add-to-shelf {
+  border-bottom: 2px dashed var(--charGreen);
+  padding-bottom: 30px;
+}
+
+#add-review-btn {
+  margin-top: 10px;
+}
+
+#rating-select {
+  width: 200px;
+  align-self: center;
+}

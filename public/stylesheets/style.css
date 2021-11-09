@@ -55,12 +55,7 @@ main {
 
 h1 {
   font-size: 3.6rem;
+  font-weight: bolder;
+  text-decoration: underline;
 }
 
-.note {
-  display: inline-block;
-}
-
-#delete-note-form {
-  display: inline-block;
-}

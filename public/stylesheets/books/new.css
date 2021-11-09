@@ -1,3 +1,11 @@
+body {
+  --lav: #DCCDE8;
+  --verm: #D33F49;
+  --charGreen: #293132;
+  --seaGreen: #00A9A5;
+  --greYell: #A8C256;
+}
+
 form {
   display: grid;
   grid-gap: 10px;

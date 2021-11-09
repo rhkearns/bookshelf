@@ -1,4 +1,5 @@
 <%- include('../partials/html-head') %> 
+<link rel="stylesheet" href="../stylesheets/books/new.css">
 <%- include('../partials/nav') %> 
 
 <main>
@@ -48,8 +49,13 @@
         <option value="True Crime">True Crime</option>
       </select>
     </label><br>
-    <label> Finished Reading:
-      <input type="checkbox" name="finishedReading" <%= book.finishedReading ? 'checked' : "" %> >
+    <label> Status:
+      <select name="status" id="status-select">
+        <option value="<%= book.status %> "><%= book.status %> </option>
+        <option value="Not Started">Not Started</option>
+        <option value="Currently Reading">Currently Reading</option>
+        <option value="Finished">Finished</option>
+      </select>
     </label><br>
     <button type="submit">Update Book</button>
   </form>
