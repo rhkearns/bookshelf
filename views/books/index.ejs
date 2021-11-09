@@ -7,18 +7,23 @@
   <% if (!books.length) {%>
     <h2>You have no books!</h2>
     <% } else {%> 
-      <form action="/books"
-        method="GET"
-        class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
-      >
-        <input 
-          type="search"
-          id="search"
-          name="keyword"
-          placeholder="Search here"
-          autocomplete="off"
+      <section id="search">
+        <form action="/books"
+          method="GET"
+          class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
         >
-      </form>
+          <input 
+            type="search"
+            id="search"
+            name="keyword"
+            placeholder="Search here"
+            autocomplete="off"
+          >
+        </form>
+        <form action="/books">
+          <button id="reset-search" type='submit'>Reset Search</button>
+        </form>
+      </section>
       <table>
         <thead>
           <tr>

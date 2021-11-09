@@ -47,4 +47,6 @@ a:hover {
   color: #7a252b;
 }
 
-
+#search {
+  display: flex;
+}
