@@ -2,7 +2,10 @@ import { Book } from '../models/book.js'
 import { Shelf } from '../models/shelf.js'
 
 function index(req, res) {
-  Book.find({owner: req.user.profile._id})
+  let modelQuery = req.query.keyword ? {title: new RegExp(req.query.keyword, 'i') } : {}
+  console.log(req.query.keyword);
+  Book.find({$and: [{owner: req.user.profile._id}, modelQuery]})
+  .sort("title")
   .then(books => {
     res.render('books/index', {
       title: `My Books`,
@@ -10,6 +13,10 @@ function index(req, res) {
     })
   })
 }
+
+
+// {title: {$regex: req.query, $options: 'i'}}
+// {$and: [{owner: req.user.profile._id} , 
 
 function newBook(req, res) {
   res.render('books/new', {title: 'New Book'})
