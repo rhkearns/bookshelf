@@ -4,6 +4,7 @@
 
 <main>
   <h1><%= title %> </h1>
+  <section> 
     <% if (!shelves.length) {%>
       <h2>You don't have any shelves! </h2>
       <h3>Why not make one?</h3>
@@ -11,18 +12,17 @@
         <button type="submit">Add a New Shelf</button>
       </form>
     <% } else {%>
-      <section class="shelves">  
       <% shelves.forEach(shelf => {%> 
         <div class="card" style="width: 15rem;">
           <img src="../images/customs/Books.png" class="card-img-top" alt="bookshelf-icon">
           <div class="card-body">
-            <p class="card-text"><%= shelf.books.length %></p>
+            <p id="book-count" class="card-text"><%= shelf.books.length %></p>
             <p class="card-text"><a href="/shelves/<%= shelf._id %>"><%= shelf.shelfName %></a></p>
           </div>
         </div>
       <% }) %> 
-      <% } %>
-    </section> 
+    <% } %>
+  </section> 
 </main>
 
 
