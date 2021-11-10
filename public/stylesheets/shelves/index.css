@@ -13,8 +13,10 @@ main {
 
 section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  /* flex-direction: row; */
   flex-wrap: wrap;
+  text-align: center;
 }
 
 .card {
@@ -31,6 +33,7 @@ section {
 .card-text {
   text-align: center;
   background: none;
+  word-wrap: normal;
 }
 
 .card-text > a {
@@ -41,3 +44,6 @@ section {
   text-align: right;
 }
 
+#shelves {
+  flex-direction: row;
+}

@@ -12,8 +12,9 @@
         <button type="submit">Add a New Shelf</button>
       </form>
     <% } else {%>
+      <section id="shelves">
       <% shelves.forEach(shelf => {%> 
-        <div class="card" style="width: 15rem;">
+        <div class="card" style="width: 20rem;">
           <img src="../images/customs/Books.png" class="card-img-top" alt="bookshelf-icon">
           <div class="card-body">
             <p class="card-text"><a href="/shelves/<%= shelf._id %>"><%= shelf.shelfName %></a></p>
@@ -21,7 +22,9 @@
         </div>
       <% }) %> 
     <% } %>
-  </section> 
+      </section>
+  </section>
+
 </main>
 
 

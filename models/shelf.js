@@ -3,7 +3,10 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const shelfSchema = new Schema({
-  shelfName: String,
+  shelfName: {
+    type: String,
+    max: 20,
+  },
   description: String,
   books: [{type: Schema.Types.ObjectId, ref: 'Book'}],
   owner: {type: Schema.Types.ObjectId, ref: 'Profile'},
