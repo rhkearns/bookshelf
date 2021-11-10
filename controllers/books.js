@@ -6,7 +6,7 @@ function index(req, res) {
   let category = req.query.category
   let modelQuery = searchHelper(req, category)
   Book.find({$and: [{owner: req.user.profile._id}, modelQuery]})
-  .sort("title")
+  .sort("author")
   .then(books => {
     res.render('books/index', {
       title: `My Books`,
