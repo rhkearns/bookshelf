@@ -25,15 +25,6 @@ table td {
   
 }
 
-#delete-book-button {
-  font-size: 2rem;
-  color: var(--charGreen);
-  background-color: #d33f4980;
-}
-
-#delete-book-button:hover {
-  background-color: #d33f49;
-}
 
 tr:hover {
   background-color: #bda06a;
@@ -47,9 +38,6 @@ a:hover {
   color: #7a252b;
 }
 
-#search {
-  display: flex;
-}
 
 form {
   display: flex;
@@ -73,4 +61,18 @@ form > button {
   width: 16rem;
   margin-left: auto;
   font-size: 2.2rem;
+}
+
+#search {
+  display: flex;
+}
+
+#delete-book-button {
+  font-size: 2rem;
+  color: var(--charGreen);
+  background-color: #d33f4980;
+}
+
+#delete-book-button:hover {
+  background-color: #d33f49;
 }

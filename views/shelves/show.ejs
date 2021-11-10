@@ -1,11 +1,12 @@
 <%- include('../partials/html-head') %> 
-<link rel="stylesheet" href="../stylesheets/books/index.css">
 <link rel="stylesheet" href="../stylesheets/books/show.css">
+<link rel="stylesheet" href="../stylesheets/books/index.css">
 <%- include('../partials/nav') %> 
 
 <main>
   <h1><%= title %> </h1> 
-  <section id="buttons">
+  <%= shelf.description %> 
+  <section id="header-btns">
     <form action="/shelves/<%= shelf.id %>/edit">
       <button type="submit">Edit Shelf</button>
     </form>
@@ -13,7 +14,6 @@
       <button type="submit">Delete Shelf</button>
     </form>
   </section>
-  <%= shelf.description %> 
 
   <% if (!shelf.books.length) {%> 
     <h2>This shelf is empty!</h2>

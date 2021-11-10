@@ -1,0 +1,17 @@
+<%- include('../partials/html-head') %> 
+<link rel="stylesheet" href="/stylesheets/books/new.css">
+<%- include('../partials/nav') %> 
+
+<main>
+  <h1><%= title %></h1>
+  <form action="/shelves/<%= shelf._id %>?_method=PUT" method="POST">
+    <label for="shelf-name">Shelf Name</label><br>
+    <input type="text" name="shelfName" maxlength="20" value="<%= shelf.shelfName %>"required><br>
+    <label for="shelf-description">Shelf Description (optional)</label><br>
+    <textarea name="description" id="shelf-description" cols="15" rows="3" value="<%= shelf.description %>"></textarea><br>
+    <button type="submit">Update Shelf</button>
+  </form>
+</main>
+
+
+<%- include('../partials/footer') %> 

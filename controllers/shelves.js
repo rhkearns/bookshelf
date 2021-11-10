@@ -61,6 +61,24 @@ function removeBook(req, res) {
     })
 }
 
+function edit(req, res) {
+  Shelf.findById(req.params.id)
+  .then(shelf => {
+    res.render('shelves/edit', {
+      title: "Edit Shelf", shelf})
+  })
+}
+
+function update(req, res) {
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
+  Shelf.findByIdAndUpdate(req.params.id, req.body)
+  .then(shelf => {
+    res.redirect(`/shelves/${shelf._id}`)
+  })
+}
+
 function deleteShelf(req, res) {
   Shelf.findByIdAndDelete(req.params.id)
   .then(shelf => {
@@ -93,5 +111,7 @@ export {
   create,
   show,
   removeBook,
+  edit,
+  update,
   deleteShelf as delete,
 }
