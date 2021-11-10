@@ -9,11 +9,12 @@ body {
 ul {
   margin: 0 0 1.6rem;
   padding: 0;
-  list-style: disc;
+  list-style: none;
 }
 
 li {
   font-weight: bold;
+  /* margin-left: 15px; */
 }
 
 table {
@@ -107,4 +108,32 @@ section div:nth-child(even) {
 #rating-select {
   width: 200px;
   align-self: center;
+}
+
+
+#add-to-shelf > form {
+  font-size: 2rem;
+}
+
+#add-to-shelf > form > label {
+  font-family: "Cinzel";
+}
+
+#shelf-Id {
+  min-width: 40px;
+}
+
+#add-to-shelf > form * {
+  font-family: "Space Grotesk", sans-serif;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+#add-to-shelf > form > button {
+  grid-column: span 2;
+  width: 16rem;
+  margin-left: auto;
+  font-size: 2.2rem;
 }

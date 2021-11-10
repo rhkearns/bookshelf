@@ -30,7 +30,7 @@
   <section id="add-to-shelf">
     <div>Add to Shelf: </div>
     <form action="/books/<%= book._id %>/shelves" method="POST">
-      <select name="shelfId">
+      <select id="shelf-Id" name="shelfId">
         <option disabled selected></option>
         <%- shelves.map(shelf => `<option value ="${shelf._id}">${shelf.shelfName}</option>`) %> 
       </select>
