@@ -63,6 +63,18 @@ h1 {
   text-decoration: underline;
 }
 
+p {
+  font-weight: bold;
+}
+
+.bigger {
+  font-size: 3rem;
+}
+
+.lander {
+  margin-bottom: 30px;
+}
+
 button {
   border-radius: 5px;
 }
