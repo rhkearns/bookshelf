@@ -50,3 +50,27 @@ a:hover {
 #search {
   display: flex;
 }
+
+form {
+  display: flex;
+  font-size: 2rem;
+}
+
+form > label {
+  font-family: "Cinzel";
+}
+
+form * {
+  font-family: "Space Grotesk", sans-serif;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+form > button {
+  grid-column: span 2;
+  width: 16rem;
+  margin-left: auto;
+  font-size: 2.2rem;
+}

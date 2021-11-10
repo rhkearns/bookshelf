@@ -12,6 +12,11 @@
           method="GET"
           class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
         >
+          <select name="category">
+            <option value="Title" selected>Title</option>
+            <option value="Author">Author</option>
+            <option value="Genre">Genre</option>
+          </select>
           <input 
             type="search"
             id="search"
@@ -19,11 +24,12 @@
             placeholder="Search here"
             autocomplete="off"
           >
+          
         </form>
+      </section>
         <form action="/books">
           <button id="reset-search" type='submit'>Reset Search</button>
         </form>
-      </section>
       <table>
         <thead>
           <tr>

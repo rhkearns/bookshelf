@@ -2,8 +2,9 @@ import { Book } from '../models/book.js'
 import { Shelf } from '../models/shelf.js'
 
 function index(req, res) {
-  let modelQuery = req.query.keyword ? {title: new RegExp(req.query.keyword, 'i') } : {}
-  console.log(req.query.keyword);
+  console.log(req.query);
+  let category = req.query.category
+  let modelQuery = searchHelper(req, category)
   Book.find({$and: [{owner: req.user.profile._id}, modelQuery]})
   .sort("title")
   .then(books => {
@@ -14,7 +15,23 @@ function index(req, res) {
   })
 }
 
-
+function searchHelper(req, category){
+  // let category = req.query.category
+  console.log("here", category);
+  let modelQuery
+  switch (category) {
+    case "Author":
+      modelQuery = req.query.keyword ? {author: new RegExp(req.query.keyword, 'i') } : {}
+      break;
+    case "Genre":
+      modelQuery = req.query.keyword ? {genre: new RegExp(req.query.keyword, 'i') } : {}
+      break;
+    default:
+      modelQuery = req.query.keyword ? {title: new RegExp(req.query.keyword, 'i') } : {}
+      break;
+  }
+  return modelQuery
+}
 // {title: {$regex: req.query, $options: 'i'}}
 // {$and: [{owner: req.user.profile._id} , 
 
