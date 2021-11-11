@@ -6,21 +6,21 @@
   <nav>
       
     <% if (user) { %>
-      <a href="/shelves">
-        <button class="nav-button" type="submit" >Home</button>
-      </a>
-      <a href="/books/new">
-        <button type="submit" class="nav-button">New Book</button>
-      </a>
-      <a href="/books">
-        <button type="submit" class="nav-button">All Books</button>
-      </a>
-      <a href="/shelves/new">
-        <button type="submit" class="nav-button">New Shelf</button>
-      </a>
-      <a href="/auth/logout">
-        <button type="submit" class="nav-button">Logout</button>
-      </a>
+        <a href="/shelves">
+          <button class="nav-button" type="submit" >Home</button>
+        </a>
+        <a href="/books/new">
+          <button type="submit" class="nav-button">New Book</button>
+        </a>
+        <a href="/books">
+          <button type="submit" class="nav-button">All Books</button>
+        </a>
+        <a href="/shelves/new">
+          <button type="submit" class="nav-button">New Shelf</button>
+        </a>
+        <a href="/auth/logout">
+          <button type="submit" class="nav-button">Logout</button>
+        </a>
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
         <button type="submit" class="siwg">

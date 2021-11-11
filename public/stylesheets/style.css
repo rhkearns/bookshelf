@@ -89,3 +89,8 @@ button {
 form * {
   color: var(--charGreen);
 }
+
+img {
+  width: 50vh;
+  margin-top: 30px;
+}
