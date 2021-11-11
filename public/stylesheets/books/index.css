@@ -1,11 +1,3 @@
-body {
-  --lav: #e9c583;
-  --verm: #83272d;
-  --charGreen: #293132;
-  --seaGreen: #00A9A5;
-  --greYell: #A8C256;
-}
-
 table {
   font-size: 2rem;
 }
@@ -26,8 +18,8 @@ table td {
 }
 
 
-tr:hover {
-  background-color: #bda06a;
+tbody > tr:hover {
+  background-color: var(--lavHover);
 }
 
 a {
@@ -35,7 +27,7 @@ a {
 }
 
 a:hover {
-  color: #7a252b;
+  color: var(--vermHover);
 }
 
 
@@ -44,12 +36,8 @@ form {
   font-size: 2rem;
 }
 
-form > label {
-  font-family: "Cinzel";
-}
 
 form * {
-  font-family: "Space Grotesk", sans-serif;
   padding: 5px;
   border-radius: 5px;
   font-size: 3rem;
@@ -58,7 +46,7 @@ form * {
 
 form > button {
   grid-column: span 2;
-  width: 16rem;
+  width: 17rem;
   margin-left: auto;
   font-size: 2.2rem;
 }
@@ -69,10 +57,11 @@ form > button {
 
 #delete-book-button {
   font-size: 2rem;
-  color: var(--charGreen);
-  background-color: #d33f4980;
-}
+  color: whitesmoke;
+  background-color: var(--lav);
+  border: 2px solid var(--verm)
+} 
 
 #delete-book-button:hover {
-  background-color: #d33f49;
+  background-color: var(--charHover);
 }

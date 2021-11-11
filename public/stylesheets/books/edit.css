@@ -1,11 +1,3 @@
-body {
-  --lav: #e9c583;
-  --verm: #83272d;
-  --charGreen: #293132;
-  --seaGreen: #00A9A5;
-  --greYell: #A8C256;
-}
-
 form {
   display: grid;
   grid-gap: 10px;
@@ -13,16 +5,13 @@ form {
   font-size: 2rem;
 }
 
-form > label {
-  font-family: "Cinzel";
-}
 
 form * {
-  font-family: "Space Grotesk", sans-serif;
   padding: 5px;
   border-radius: 5px;
   font-size: 3rem;
   font-weight: bold;
+  color: var(--verm)
 }
 
 form > button {
@@ -30,4 +19,5 @@ form > button {
   width: 16rem;
   margin-left: auto;
   font-size: 2.2rem;
+  color: var(--verm)
 }
