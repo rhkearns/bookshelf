@@ -16,7 +16,13 @@ https://trello.com/b/jpT5RMCl/unit-2-project-workspace
 ***
 
 ## Screenshots
-
+![Landing Screen](public/images/screenshots/landing.png)
+![Home Screen](public/images/screenshots/home_screen.png)
+![All Books](public/images/screenshots/all_books.png)
+![Book Details](public/images/screenshots/book_details.png)
+![New Book](public/images/screenshots/new_book.png)
+![New Shelf](public/images/screenshots/new_shelf.png)
+![Shelf Details](public/images/screenshots/shelf_details.png)
 
 ***
 
